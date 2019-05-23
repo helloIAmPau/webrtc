@@ -17,4 +17,4 @@ $ make android
 
 ## Change release
 
-If you need to change the WebRTC release to build, open the `Makefile` and update the `RELEASE` variable
+If you need to change the WebRTC release, open the `Makefile` and update the `RELEASE` variable
