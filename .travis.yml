@@ -1,0 +1,5 @@
+jobs:
+  include:
+    - stage: build ios
+      os: osx
+      script: make ios
