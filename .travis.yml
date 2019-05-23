@@ -2,4 +2,12 @@ jobs:
   include:
     - stage: build ios
       os: osx
-      script: make ios
+      script: make release-ios
+      deploy:
+        provider: releases
+        file: webrtc.framework.zip
+        skip_cleanup: true
+        api_key:
+          secure: "2Ti6+25R6CedvHuSj0l0Q2Snl/hkdr3WG4oXgFsLWQxfVBKmAMXUpjZFTmPfHSW/zLib/s1ZA+rpd5k9L4kHFq1IrFQZS8mmJwel92EYVjk8R+GX5bxYYBhqfJzBtevwTqLS/Mv0MJpzmStlLh05LMM+2UV3aMcxn0BPZlSGZuBnbg3s9egiGoQ/yvX7TiC/4vWCB1qzitO7HVhVTh/wE+KlE9Ixkh4YPxiKIXCl5d6X0LkibrPlSl4G9q8C8sWTRPCr1CMKVNP3qIrVQPfHRv6b4JNmJsJY9bn4/5aDxSzfVkbg9oYjtJ40i+w2Uv4pJq1zfNyU6IGaBW2th92xxQMz8o8E+XGfdZYwlhhd+2exSwqS/Fywew44XDqi3xFrwuWTAQosw3x2bb9AldN/J1C8Au9RjZpOjqz0fTADX+LQBRFWF1++GjlCMoWonjFOwkQv53WdAM+z1QcZYLvYySVSsl0g/So2MA84qoMiZBKxnroj+Ap0A/hM8NKHJzUMRswvWPYXy3B4PzchCaYXB2FcDVJNSVSPcWYVPW1dfIOamLD5VEh94FASlkgSgzLKkFCxrjM/WUaD9zwa4cuQDlt4Q3OU6GJSx1GDx0PkllvxYhOY92WTdxKs1OW+C2GuJnp74kLUD94bVezWFdlyFoUNErvd1x+4eFn8smUUOAg="
+        on:
+          tags: true
