@@ -1,5 +1,14 @@
+cache:
+  directories:
+    - ./ios
+    - ./android
+
 jobs:
   include:
+    - stage: deps ios
+      os: osx
+      osx_image: xcode10.2
+      script: make deps-ios
     - stage: build ios
       os: osx
       osx_image: xcode10.2
