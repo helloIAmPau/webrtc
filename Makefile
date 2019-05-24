@@ -10,7 +10,7 @@ depot-tools:
 	if [ ! -d depot_tools/ ]; then git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git; fi
 
 deps-ios: depot-tools
-	if [ ! -d ios ]; then mkdir -p ios && export PATH=$$PATH:$$(pwd)/depot_tools && cd ios && fetch --nohooks webrtc_ios; fi
+	if [ ! -f ios/.gclient ]; then mkdir -p ios && export PATH=$$PATH:$$(pwd)/depot_tools && cd ios && fetch --nohooks webrtc_ios; fi
 	export PATH=$$PATH:$$(pwd)/depot_tools && cd ios && gclient sync --with_branch_heads --with_tags
 	export PATH=$$PATH:$$(pwd)/depot_tools && cd ios/src && if [ "$$(git branch | head -n 1 | awk '{ print $2 }')" != ${RELEASE} ]; then git checkout -B ${RELEASE} refs/remotes/branch-heads/m75 && gclient sync; fi
 

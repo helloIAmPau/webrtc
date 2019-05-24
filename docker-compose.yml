@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  android:
+    build: .
+    command: cd /app && make android
+    volumes:
+      - ./Makefile:/app/Makefile
+      - ./out:/app/out
+
