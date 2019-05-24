@@ -2,6 +2,7 @@ jobs:
   include:
     - stage: build ios
       os: osx
+      osx_image: xcode10.2
       script: make release-ios
       deploy:
         provider: releases
